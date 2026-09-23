@@ -18,13 +18,13 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
   if (!isOpen) return null;
 
   const message = `*SOLICITAÇÃO DE DEGUSTAÇÃO PRIVATIVA - ATELIER FERNANDA PRADO*\n\n` +
-    `Olá, Chef Fernanda Prado!\n` +
+    `Olá, equipe do Buffet Fernanda Prado!\n` +
     `Gostaria de agendar uma sessão exclusiva no Atelier Gastronômico da Chácara Urbana em Jundiaí:\n\n` +
     `👤 *Anfitriões:* ${name}\n` +
     `📱 *WhatsApp:* ${phone}\n` +
     `💍 *Tipo de Evento:* ${eventType}\n` +
     `📅 *Data Prevista do Evento:* ${date || 'A definir'}\n\n` +
-    `Gostaria de consultar as próximas datas disponíveis na agenda da chef.`;
+    `Gostaria de consultar as próximas datas disponíveis para a degustação com o chef.`;
 
   const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
@@ -60,7 +60,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
             Agendar Degustação Privativa
           </h3>
           <p className="text-xs text-neutral-600 font-light">
-            Sessão exclusiva com mesa posta e prova guiada pela Chef Fernanda Prado em Jundiaí.
+            Sessão exclusiva com mesa posta e prova guiada pelo chef executivo em Jundiaí.
           </p>
         </div>
 
@@ -147,7 +147,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
                 className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-md transition-all"
               >
                 <Send className="w-4 h-4 text-white" />
-                Confirmar no WhatsApp da Chef
+                Confirmar no WhatsApp
               </a>
             </div>
           ) : (

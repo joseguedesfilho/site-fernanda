@@ -92,6 +92,14 @@ export default function Footer({ onScrollToSection, onOpenTastingModal }: Footer
               </li>
               <li>
                 <button
+                  onClick={() => onScrollToSection('sobre')}
+                  className="hover:text-neutral-950 transition-colors cursor-pointer"
+                >
+                  Fernanda Prado (A Fundadora)
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => onScrollToSection('galeria')}
                   className="hover:text-neutral-950 transition-colors cursor-pointer"
                 >

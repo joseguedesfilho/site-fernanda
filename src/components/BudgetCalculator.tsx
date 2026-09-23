@@ -149,7 +149,7 @@ export default function BudgetCalculator() {
     const selectedDietary = DIETARY_OPTIONS.filter(d => budget.dietaryNeeds.includes(d.id)).map(d => d.label).join(', ');
 
     return `*SOLICITAÇÃO DE PROPOSTA VIP - BUFFET FERNANDA PRADO*\n\n` +
-      `Olá, Chef Fernanda Prado!\n` +
+      `Olá, equipe do Buffet Fernanda Prado!\n` +
       `Gostaria de uma proposta personalizada estruturada através do simulador do site:\n\n` +
       `*Nome:* ${budget.clientName || 'Cliente'}\n` +
       `*WhatsApp:* ${budget.clientPhone || 'A informar'}\n` +
@@ -202,7 +202,7 @@ export default function BudgetCalculator() {
           </h2>
           <p className="text-sm sm:text-base text-neutral-600 font-light leading-relaxed">
             Simule convidados, formato e módulos especiais. Nosso simulador calcula o dimensionamento operacional 
-            da brigada e envia o detalhamento direto para o WhatsApp da chef para uma proposta formal.
+            da brigada e envia o detalhamento direto para o WhatsApp para uma proposta formal.
           </p>
         </div>
 
@@ -710,7 +710,7 @@ export default function BudgetCalculator() {
                       Proposta estruturada com sucesso!
                     </div>
                     <p className="text-xs text-neutral-600">
-                      Clique no botão abaixo para abrir a conversa no WhatsApp oficial da Chef Fernanda Prado com todos os itens já organizados:
+                      Clique no botão abaixo para abrir a conversa no WhatsApp oficial do Buffet Fernanda Prado com todos os itens já organizados:
                     </p>
                     <a
                       href={whatsappGeneratedUrl}
@@ -719,7 +719,7 @@ export default function BudgetCalculator() {
                       className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-xl transition-all"
                     >
                       <Send className="w-4 h-4 text-white" />
-                      Enviar Proposta no WhatsApp da Chef
+                      Enviar Proposta no WhatsApp
                     </a>
                   </div>
                 ) : (

@@ -2,12 +2,9 @@ import { useState, useRef, useEffect } from 'react';
 import { 
   Building2, 
   Award, 
-  Check, 
   ChevronRight, 
   ChevronLeft, 
-  Briefcase, 
-  ArrowRight, 
-  MoveHorizontal 
+  Briefcase 
 } from 'lucide-react';
 import { CLIENT_LOGOS, CLIENTS_STATS } from '../data/clientsData';
 import { CONTACT_INFO } from '../data/buffetData';
@@ -18,7 +15,6 @@ interface ClientsSectionProps {
 }
 
 export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: ClientsSectionProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const carouselRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -28,10 +24,6 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
   const isDraggingRef = useRef(false);
   const startXRef = useRef(0);
   const scrollLeftRef = useRef(0);
-
-  const filteredLogos = selectedCategory === 'all'
-    ? CLIENT_LOGOS
-    : CLIENT_LOGOS.filter(c => c.category === selectedCategory);
 
   const updateScrollState = () => {
     if (!carouselRef.current) return;
@@ -54,19 +46,13 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
       carousel.removeEventListener('scroll', updateScrollState);
       window.removeEventListener('resize', updateScrollState);
     };
-  }, [filteredLogos]);
-
-  // Reset scroll when category filter changes
-  useEffect(() => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-    }
-  }, [selectedCategory]);
+  }, []);
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (!carouselRef.current) return;
-    const itemWidth = carouselRef.current.clientWidth / 5;
-    const scrollAmount = direction === 'left' ? -itemWidth * 2 : itemWidth * 2;
+    // Scroll by approximately 3 to 4 items on desktop (80% of visible container)
+    const containerWidth = carouselRef.current.clientWidth;
+    const scrollAmount = direction === 'left' ? -containerWidth * 0.8 : containerWidth * 0.8;
     carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
   };
 
@@ -136,75 +122,26 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
           ))}
         </div>
 
-        {/* 2. Filter Tabs & Carousel Navigation Header */}
-        <div className="space-y-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 border-b border-neutral-200 pb-4">
-            
-            {/* Filter Tabs */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-1 sm:gap-2">
-              {[
-                { id: 'all', label: 'Todas as Marcas' },
-                { id: 'corporativo', label: 'Corporativo & Imobiliário' },
-                { id: 'saude_financeiro', label: 'Saúde & Financeiro' },
-                { id: 'institucional', label: 'Institucional & Clubes' },
-                { id: 'espacos', label: 'Espaços & Fazendas' }
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setSelectedCategory(tab.id)}
-                  className={`px-3 py-1.5 text-xs uppercase tracking-[0.14em] font-medium transition-all cursor-pointer relative ${
-                    selectedCategory === tab.id
-                      ? 'text-neutral-950 font-semibold'
-                      : 'text-neutral-500 hover:text-neutral-950'
-                  }`}
-                >
-                  {tab.label}
-                  {selectedCategory === tab.id && (
-                    <span className="absolute bottom-[-17px] left-0 right-0 h-[2px] bg-neutral-950 transition-all"></span>
-                  )}
-                </button>
-              ))}
-            </div>
+        {/* 2. Logos Carousel: Exactly 5 items visible on desktop, clean side navigation arrows */}
+        <div className="space-y-4">
+          {/* Carousel Track with 5 items visible + side floating arrows for effortless clicking */}
+          <div className="relative group/carousel">
+            {/* Side Floating Left Arrow */}
+            <button
+              type="button"
+              onClick={() => handleScroll('left')}
+              disabled={!canScrollLeft}
+              className={`absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+                canScrollLeft 
+                  ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
+                  : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
+              }`}
+              aria-label="Ver clientes anteriores"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
 
-            {/* Carousel Controls & Drag Hint */}
-            <div className="flex items-center gap-3 self-center md:self-auto">
-              <span className="text-[11px] text-neutral-500 font-light flex items-center gap-1.5 select-none hidden sm:inline-flex">
-                <MoveHorizontal className="w-3.5 h-3.5 text-neutral-400" />
-                Arraste para o lado
-              </span>
-
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => handleScroll('left')}
-                  disabled={!canScrollLeft}
-                  className={`w-9 h-9 rounded-sm border flex items-center justify-center transition-all cursor-pointer ${
-                    canScrollLeft 
-                      ? 'border-neutral-300 text-neutral-800 hover:bg-neutral-950 hover:text-white' 
-                      : 'border-neutral-200 text-neutral-300 cursor-not-allowed opacity-40'
-                  }`}
-                  aria-label="Ver clientes anteriores"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                <button
-                  onClick={() => handleScroll('right')}
-                  disabled={!canScrollRight}
-                  className={`w-9 h-9 rounded-sm border flex items-center justify-center transition-all cursor-pointer ${
-                    canScrollRight 
-                      ? 'border-neutral-300 text-neutral-800 hover:bg-neutral-950 hover:text-white' 
-                      : 'border-neutral-200 text-neutral-300 cursor-not-allowed opacity-40'
-                  }`}
-                  aria-label="Ver próximos clientes"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* 3. Logos Carousel: Exactly 5 items visible simultaneously on desktop */}
-          <div className="relative">
+            {/* Scrollable Container */}
             <div
               ref={carouselRef}
               onMouseDown={handleMouseDown}
@@ -213,9 +150,10 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               onMouseLeave={handleMouseUpOrLeave}
               className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
-              {filteredLogos.map((client) => (
+              {CLIENT_LOGOS.map((client) => (
                 <div
                   key={client.id}
+                  /* Exactly 5 items visible on lg (w-[calc((100%-4*1rem)/5)]), 3 on md, 2 on sm, 1.3 on mobile */
                   className="flex-[0_0_calc(75%)] sm:flex-[0_0_calc((100%-1rem)/2)] md:flex-[0_0_calc((100%-2*1rem)/3)] lg:flex-[0_0_calc((100%-4*1rem)/5)] snap-start bg-[#FAFAF9] hover:bg-white border border-neutral-200 hover:border-neutral-400 p-5 rounded-sm transition-all duration-300 flex flex-col items-center justify-center text-center space-y-3 group min-h-[145px] shadow-2xs hover:shadow-md"
                 >
                   {client.logoUrl ? (
@@ -247,22 +185,37 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               ))}
             </div>
 
-            {/* Scroll Progress Indicator Bar */}
-            <div className="mt-4 flex items-center justify-between gap-4 text-[11px] text-neutral-500 font-light">
-              <div className="flex-1 h-0.5 bg-neutral-200 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-neutral-950 transition-all duration-150" 
-                  style={{ width: `${Math.max(15, scrollProgress)}%` }}
-                />
-              </div>
-              <span className="text-[10px] uppercase tracking-wider text-neutral-500">
-                Mostrando 5 por vez · {filteredLogos.length} marcas atendidas
-              </span>
+            {/* Side Floating Right Arrow */}
+            <button
+              type="button"
+              onClick={() => handleScroll('right')}
+              disabled={!canScrollRight}
+              className={`absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+                canScrollRight 
+                  ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
+                  : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
+              }`}
+              aria-label="Ver próximos clientes"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Scroll Progress Indicator Bar & Client Count */}
+          <div className="mt-3 flex items-center justify-between gap-4 text-[11px] text-neutral-500 font-light">
+            <div className="flex-1 h-0.5 bg-neutral-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-neutral-950 transition-all duration-150" 
+                style={{ width: `${Math.max(15, scrollProgress)}%` }}
+              />
             </div>
+            <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium">
+              5 visíveis simultaneamente · {CLIENT_LOGOS.length} marcas atendidas
+            </span>
           </div>
         </div>
 
-        {/* 4. Corporate Direct Assistance & Invoicing Callout */}
+        {/* 3. Corporate Direct Assistance & Invoicing Callout */}
         <div className="p-8 sm:p-10 bg-[#F5F5F4] border border-neutral-200 rounded-sm flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 text-center lg:text-left">
             <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">

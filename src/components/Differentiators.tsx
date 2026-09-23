@@ -40,7 +40,7 @@ export default function Differentiators({ onOpenTastingModal }: DifferentiatorsP
     },
     {
       topic: "Degustação & Certeza de Contratação",
-      fernanda: "Atelier de Degustação Privativo na Chácara Urbana em Jundiaí, com mesa posta para os noivos e aprovação direta com a Chef Fernanda Prado.",
+      fernanda: "Atelier de Degustação Privativo na Chácara Urbana em Jundiaí, com mesa posta para os noivos e aprovação direta com o chef executivo.",
       conventional: "Provas coletivas com dezenas de casais desconhecidos ou assinatura de contrato sem experimentar os pratos contratados."
     }
   ];

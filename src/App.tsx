@@ -10,6 +10,7 @@ import TrustBar from './components/TrustBar';
 import BudgetCalculator from './components/BudgetCalculator';
 import MenuSection from './components/MenuSection';
 import Differentiators from './components/Differentiators';
+import AboutFounder from './components/AboutFounder';
 import TastingBooking from './components/TastingBooking';
 import GallerySection from './components/GallerySection';
 import ClientsSection from './components/ClientsSection';
@@ -65,6 +66,12 @@ export default function App() {
 
         {/* Persuasive Advantages & Peace of Mind Differentiators */}
         <Differentiators
+          onOpenTastingModal={() => setIsTastingModalOpen(true)}
+        />
+
+        {/* Founder & Leadership Section: Fernanda Prado */}
+        <AboutFounder
+          onOpenSimulator={() => scrollToSection('simulador')}
           onOpenTastingModal={() => setIsTastingModalOpen(true)}
         />
 

@@ -10,7 +10,7 @@ export default function FaqSection() {
   };
 
   const whatsappDirect = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(
-    'Olá, Chef Fernanda Prado! Gostaria de esclarecer uma dúvida sobre os serviços do buffet para o meu evento.'
+    'Olá, equipe do Buffet Fernanda Prado! Gostaria de esclarecer uma dúvida sobre os serviços do buffet para o meu evento.'
   )}`;
 
   return (
@@ -67,7 +67,7 @@ export default function FaqSection() {
         {/* Direct question help */}
         <div className="mt-12 text-center p-6 bg-[#F5F5F4] border border-neutral-200 rounded-sm">
           <p className="text-xs sm:text-sm text-neutral-700 font-light mb-3">
-            Sua dúvida específica não está listada aqui? Fale diretamente com a equipe da Chef Fernanda Prado.
+            Sua dúvida específica não está listada aqui? Fale diretamente com a equipe do Buffet Fernanda Prado.
           </p>
           <a
             href={whatsappDirect}
@@ -75,7 +75,7 @@ export default function FaqSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.15em] text-neutral-950 hover:text-black transition-colors border-b border-neutral-950 pb-0.5"
           >
-            Tirar dúvida direta no WhatsApp da Chef
+            Tirar dúvida direta no WhatsApp
             <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>

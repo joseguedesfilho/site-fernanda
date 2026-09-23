@@ -33,6 +33,7 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
     { label: 'Simulador', id: 'simulador', highlight: true },
     { label: 'Degustação', id: 'degustacao' },
     { label: 'O Padrão FP', id: 'diferenciais' },
+    { label: 'Fernanda Prado', id: 'sobre' },
     { label: 'Galeria', id: 'galeria' },
     { label: 'Clientes', id: 'clientes' },
     { label: 'Depoimentos', id: 'depoimentos' },
@@ -194,7 +195,7 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
                 className="w-full text-center py-3 bg-black text-white font-semibold text-xs uppercase tracking-[0.15em] rounded-sm hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 <MessageCircle className="w-4 h-4" />
-                Falar com a Chef no WhatsApp
+                Falar no WhatsApp
               </a>
             </div>
           </div>

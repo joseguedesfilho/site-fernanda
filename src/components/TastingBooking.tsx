@@ -15,14 +15,14 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const bookingText = `Olá, Chef Fernanda Prado!\n\n` +
+  const bookingText = `Olá, equipe do Buffet Fernanda Prado!\n\n` +
     `Gostaria de agendar uma DEGUSTAÇÃO PRIVATIVA EXCLUSIVA no Atelier da Chácara Urbana em Jundiaí:\n\n` +
     `* Nome dos Anfitriões: ${name}\n` +
     `* Telefone/WhatsApp: ${phone}\n` +
     `* Tipo de Evento: ${eventType}\n` +
     `* Data Prevista do Evento: ${eventDate || 'A definir'}\n` +
     `* Preferência de Data/Horário para Prova: ${tastingDate || 'A combinar'}\n\n` +
-    `Gostaria de confirmar os horários disponíveis com a chef!`;
+    `Gostaria de confirmar os horários disponíveis para a degustação com o chef!`;
 
   const whatsappUrl = `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(bookingText)}`;
 
@@ -94,8 +94,8 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                       <Check className="w-3.5 h-3.5 stroke-[3]" />
                     </div>
                     <div>
-                      <strong className="text-white font-medium block">Sessão Guiada pela Chef:</strong>
-                      Apresentação direta pela Chef Fernanda Prado, afinando temperos, molhos e tempos de serviço.
+                      <strong className="text-white font-medium block">Sessão Guiada pelo Chef:</strong>
+                      Apresentação direta pelo chef executivo, afinando temperos, molhos e tempos de serviço.
                     </div>
                   </div>
 
@@ -226,7 +226,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                       className="inline-flex items-center justify-center gap-2 w-full py-4 px-4 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-xl transition-all"
                     >
                       <Send className="w-4 h-4 text-white" />
-                      Confirmar Horário no WhatsApp da Chef
+                      Confirmar Horário no WhatsApp
                     </a>
                   </div>
                 ) : (

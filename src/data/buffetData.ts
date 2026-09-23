@@ -143,7 +143,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: "Mini Burgers Gourmet com Cheddar Inglês e Bacon Caramelizado",
     category: "madrugada",
     highlight: "Sucesso Absoluto na Pista",
-    description: "Blend bovino artesanal de 60g grelhado ao ponto, queijo cheddar inglês derretido, cebola caramelizada na cerveja preta e maionese defumada da chef em pão brioche dourado.",
+    description: "Blend bovino artesanal de 60g grelhado ao ponto, queijo cheddar inglês derretido, cebola caramelizada na cerveja preta e maionese defumada do chef em pão brioche dourado.",
     tags: ["Energia na Pista", "Mini Burger", "Brioche Francês"]
   },
   {
