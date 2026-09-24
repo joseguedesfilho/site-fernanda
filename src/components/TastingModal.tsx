@@ -39,14 +39,14 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
       <div 
-        className="relative max-w-lg w-full bg-white text-neutral-900 border border-neutral-200 rounded-sm p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto"
+        className="relative max-w-lg w-full bg-white text-neutral-900 border border-neutral-200 rounded-sm p-5 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-neutral-400 hover:text-neutral-950 p-1 cursor-pointer"
+          className="absolute top-3 right-3 sm:top-4 sm:right-4 text-neutral-400 hover:text-neutral-950 w-10 h-10 flex items-center justify-center rounded-full hover:bg-neutral-100 transition-colors cursor-pointer"
           aria-label="Fechar"
         >
           <X className="w-5 h-5" />
@@ -75,7 +75,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
               placeholder="Ex: Mariana Silveira & Carlos Eduardo"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+              className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
             />
           </div>
 
@@ -90,7 +90,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
                 placeholder="(11) 98765-4321"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
-                className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
               />
             </div>
 
@@ -101,7 +101,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
               <select
                 value={eventType}
                 onChange={(e) => setEventType(e.target.value)}
-                className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors cursor-pointer"
+                className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors cursor-pointer"
               >
                 <option value="Casamento">Casamento</option>
                 <option value="Festa de 15 Anos">Festa de 15 Anos</option>
@@ -121,7 +121,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
               placeholder="Ex: Outubro / 2026"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-              className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+              className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
             />
           </div>
 
@@ -144,9 +144,9 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
                 onClick={() => {
                   setTimeout(() => onClose(), 1500);
                 }}
-                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-md transition-all"
+                className="inline-flex items-center justify-center gap-2 w-full py-3.5 px-4 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-md transition-all text-center"
               >
-                <Send className="w-4 h-4 text-white" />
+                <Send className="w-4 h-4 text-white shrink-0" />
                 Confirmar no WhatsApp
               </a>
             </div>
@@ -154,9 +154,9 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
             <div className="pt-2">
               <button
                 type="submit"
-                className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.18em] py-4 px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+                className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] py-4 px-4 sm:px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] text-center"
               >
-                <Send className="w-4 h-4 text-white" />
+                <Send className="w-4 h-4 text-white shrink-0" />
                 Solicitar Data de Degustação
               </button>
             </div>

@@ -33,7 +33,7 @@ export default function Hero({ onOpenSimulator, onOpenTastingModal }: HeroProps)
             
             {/* Editorial Kicker & Credibility Bar */}
             <div className="space-y-2">
-              <div className="flex items-center gap-3 text-xs tracking-[0.25em] uppercase text-neutral-500 font-sans font-medium">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-[11px] sm:text-xs tracking-[0.2em] sm:tracking-[0.25em] uppercase text-neutral-500 font-sans font-medium">
                 <span>Haute Gastronomie</span>
                 <span className="text-neutral-300">·</span>
                 <span>Jundiaí & Grande SP</span>
@@ -58,7 +58,7 @@ export default function Hero({ onOpenSimulator, onOpenTastingModal }: HeroProps)
             </div>
 
             {/* Main Headline - Editorial Sophistication */}
-            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-neutral-950 leading-[1.12] tracking-tight max-w-3xl">
+            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-normal text-neutral-950 leading-[1.18] sm:leading-[1.12] tracking-tight max-w-3xl">
               A alta gastronomia que transforma o seu grande dia em uma{' '}
               <span className="italic font-light text-neutral-700">
                 memória sensorial inesquecível.
@@ -66,13 +66,13 @@ export default function Hero({ onOpenSimulator, onOpenTastingModal }: HeroProps)
             </h1>
 
             {/* Persuasive Subtitle */}
-            <p className="text-base sm:text-lg text-neutral-700 font-light max-w-2xl leading-relaxed">
+            <p className="text-sm sm:text-lg text-neutral-700 font-light max-w-2xl leading-relaxed">
               Ilhas gastronômicas exuberantes, jantares autorais e um serviço impecável com brigada 100% própria. 
               Para quem não abre mão de ver seus convidados encantados do primeiro canapé à última mordida da madrugada.
             </p>
 
             {/* Hallmarks of Excellence */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 text-sm text-neutral-800">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5 pt-1 text-xs sm:text-sm text-neutral-800">
               <div className="flex items-start gap-2.5">
                 <Check className="w-4 h-4 text-neutral-950 flex-shrink-0 mt-0.5 stroke-[2.5]" />
                 <span>Degustação privativa para aprovação do menu na Chácara Urbana</span>
@@ -92,35 +92,35 @@ export default function Hero({ onOpenSimulator, onOpenTastingModal }: HeroProps)
             </div>
 
             {/* High-conversion action buttons */}
-            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <button
                 onClick={onOpenSimulator}
-                className="cursor-pointer group relative inline-flex items-center justify-center px-8 py-4 text-xs font-bold tracking-[0.18em] uppercase text-white bg-black hover:bg-neutral-800 rounded-sm shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.99]"
+                className="cursor-pointer group relative inline-flex items-center justify-center px-5 sm:px-8 py-4 text-[11px] sm:text-xs font-bold tracking-[0.14em] sm:tracking-[0.18em] uppercase text-white bg-black hover:bg-neutral-800 rounded-sm shadow-xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.99] text-center"
               >
-                <Sparkles className="w-3.5 h-3.5 mr-2 text-white" />
+                <Sparkles className="w-3.5 h-3.5 mr-2 text-white shrink-0" />
                 Simular Cardápio & Proposta Sob Medida
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform shrink-0" />
               </button>
 
               <button
                 onClick={onOpenTastingModal}
-                className="cursor-pointer inline-flex items-center justify-center px-7 py-4 text-xs font-medium tracking-[0.18em] uppercase text-neutral-900 bg-white/90 hover:bg-white hover:text-black border border-neutral-300 rounded-sm transition-all shadow-sm backdrop-blur-sm"
+                className="cursor-pointer inline-flex items-center justify-center px-5 sm:px-7 py-3.5 sm:py-4 text-[11px] sm:text-xs font-medium tracking-[0.14em] sm:tracking-[0.18em] uppercase text-neutral-900 bg-white/90 hover:bg-white hover:text-black border border-neutral-300 rounded-sm transition-all shadow-sm backdrop-blur-sm text-center"
               >
-                <Calendar className="w-3.5 h-3.5 mr-2 text-neutral-700" />
+                <Calendar className="w-3.5 h-3.5 mr-2 text-neutral-700 shrink-0" />
                 Agendar Degustação dos Noivos
               </button>
             </div>
 
             {/* Reassurance text */}
             <div className="flex items-center gap-2 text-xs text-neutral-500 pt-1">
-              <ShieldCheck className="w-4 h-4 text-neutral-700" />
+              <ShieldCheck className="w-4 h-4 text-neutral-700 shrink-0" />
               <span>Atendimento exclusivo com assessoria gastronômica e resposta em poucos minutos.</span>
             </div>
           </div>
 
           {/* Side Floating Atelier Feature Card */}
           <div className="lg:col-span-4 mt-6 lg:mt-0">
-            <div className="bg-white/95 border border-neutral-200/90 p-7 sm:p-8 rounded-sm shadow-2xl relative backdrop-blur-md space-y-5">
+            <div className="bg-white/95 border border-neutral-200/90 p-5 sm:p-8 rounded-sm shadow-2xl relative backdrop-blur-md space-y-5">
               
               <div className="flex items-center justify-between border-b border-neutral-200 pb-4">
                 <div>

@@ -18,13 +18,13 @@ export default function FloatingWhatsApp() {
   )}`;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
       {/* Speech bubble tooltip */}
       {showTooltip && (
-        <div className="mb-3 mr-1 bg-white text-neutral-900 border border-neutral-200 p-3.5 rounded-lg shadow-2xl max-w-xs animate-bounce-subtle relative">
+        <div className="mb-2.5 mr-0.5 bg-white text-neutral-900 border border-neutral-200 p-3 sm:p-3.5 rounded-lg shadow-2xl max-w-[calc(100vw-3rem)] sm:max-w-xs animate-bounce-subtle relative">
           <button
             onClick={() => setShowTooltip(false)}
-            className="absolute top-1.5 right-1.5 text-neutral-400 hover:text-neutral-950 p-0.5 cursor-pointer"
+            className="absolute top-1.5 right-1.5 text-neutral-400 hover:text-neutral-950 p-1 cursor-pointer w-6 h-6 flex items-center justify-center rounded-full hover:bg-neutral-100"
             aria-label="Fechar aviso"
           >
             <X className="w-3.5 h-3.5" />
@@ -47,9 +47,9 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar pelo WhatsApp com Fernanda Prado Buffet"
-        className="group relative flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
+        className="group relative flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white p-3.5 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
       >
-        <MessageCircle className="w-7 h-7 fill-white text-white" />
+        <MessageCircle className="w-6 h-6 sm:w-7 sm:h-7 fill-white text-white" />
         <span className="hidden sm:inline-block text-xs font-bold uppercase tracking-wider pr-1">
           WhatsApp Buffet
         </span>

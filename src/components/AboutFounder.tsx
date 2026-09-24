@@ -47,7 +47,7 @@ export default function AboutFounder({ onOpenSimulator, onOpenTastingModal }: Ab
           
           {/* Left Column: Portrait Photograph of Fernanda Prado */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="relative mx-auto max-w-md lg:max-w-none pb-6 sm:pb-0">
+            <div className="relative mx-auto max-w-md lg:max-w-none pb-8 sm:pb-0">
               
               {/* Luxury Frame Border Accent */}
               <div className="relative rounded-sm overflow-hidden border border-neutral-300/80 shadow-2xl bg-white p-2">
@@ -88,15 +88,15 @@ export default function AboutFounder({ onOpenSimulator, onOpenTastingModal }: Ab
               </div>
 
               {/* Experience Floating Badge */}
-              <div className="absolute -bottom-4 left-2 sm:-bottom-6 sm:-left-6 bg-white border border-neutral-200 p-3 sm:p-4 rounded-sm shadow-xl flex items-center gap-2.5 sm:gap-3">
+              <div className="absolute -bottom-5 left-2 sm:-bottom-6 sm:-left-6 bg-white border border-neutral-200 p-2.5 sm:p-4 rounded-sm shadow-xl flex items-center gap-2 sm:gap-3 max-w-[90%] sm:max-w-none">
                 <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-950 text-white flex items-center justify-center shrink-0">
                   <Award className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                 </div>
                 <div>
-                  <span className="font-serif text-base sm:text-lg font-bold text-neutral-950 block leading-none">
+                  <span className="font-serif text-sm sm:text-lg font-bold text-neutral-950 block leading-none">
                     12+ Anos
                   </span>
-                  <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-neutral-500 font-medium">
+                  <span className="text-[9px] sm:text-[11px] uppercase tracking-wider text-neutral-500 font-medium">
                     De Excelência & Dedicação
                   </span>
                 </div>

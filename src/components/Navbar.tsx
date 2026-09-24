@@ -31,7 +31,6 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
   const navLinks = [
     { label: 'Cardápios', id: 'cardapios' },
     { label: 'Simulador', id: 'simulador', highlight: true },
-    { label: 'Degustação', id: 'degustacao' },
     { label: 'Galeria', id: 'galeria' },
     { label: 'Clientes', id: 'clientes' },
     { label: 'Depoimentos', id: 'depoimentos' },
@@ -148,8 +147,8 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
             <div className="lg:hidden flex items-center gap-2">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 text-neutral-900 hover:text-black transition-colors cursor-pointer"
-                aria-label="Abrir menu de navegação"
+                className="w-11 h-11 flex items-center justify-center text-neutral-900 hover:text-black hover:bg-neutral-100 rounded-sm transition-colors cursor-pointer"
+                aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -159,18 +158,18 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
 
         {/* Mobile Slide-down Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-b border-neutral-200 px-5 pt-4 pb-6 mt-3 space-y-4 shadow-xl">
-            <nav className="flex flex-col space-y-1 text-xs uppercase tracking-[0.15em] text-neutral-700">
+          <div className="lg:hidden bg-white border-b border-neutral-200 px-4 sm:px-6 pt-4 pb-6 mt-3 space-y-4 shadow-xl">
+            <nav className="flex flex-col divide-y divide-neutral-100 text-xs uppercase tracking-[0.15em] text-neutral-700">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`text-left py-2.5 border-b border-neutral-100 transition-colors cursor-pointer flex items-center justify-between ${
+                  className={`text-left py-3.5 transition-colors cursor-pointer flex items-center justify-between min-h-[44px] ${
                     link.highlight ? 'text-black font-semibold' : 'hover:text-black'
                   }`}
                 >
                   <span>{link.label}</span>
-                  <span className="text-neutral-400 text-[10px]">→</span>
+                  <span className="text-neutral-400 text-xs">→</span>
                 </button>
               ))}
             </nav>
@@ -181,18 +180,18 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
                   setMobileMenuOpen(false);
                   onOpenTastingModal();
                 }}
-                className="w-full text-center py-3 border border-neutral-300 text-neutral-900 font-medium text-xs uppercase tracking-[0.15em] rounded-sm hover:bg-neutral-100 transition-colors flex items-center justify-center gap-2"
+                className="w-full text-center py-3.5 border border-neutral-300 text-neutral-900 font-medium text-xs uppercase tracking-[0.15em] rounded-sm hover:bg-neutral-100 transition-colors flex items-center justify-center gap-2 min-h-[44px]"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-4 h-4 text-neutral-700" />
                 Agendar Degustação Privativa
               </button>
               <a
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full text-center py-3 bg-black text-white font-semibold text-xs uppercase tracking-[0.15em] rounded-sm hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 shadow-sm"
+                className="w-full text-center py-3.5 bg-neutral-950 text-white font-semibold text-xs uppercase tracking-[0.15em] rounded-sm hover:bg-black transition-colors flex items-center justify-center gap-2 shadow-sm min-h-[44px]"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 text-white" />
                 Falar no WhatsApp
               </a>
             </div>

@@ -207,8 +207,16 @@ export default function BudgetCalculator() {
         </div>
 
         {/* Minimalist Editorial Step Progress */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <div className="grid grid-cols-5 gap-2 text-center">
+        <div className="max-w-3xl mx-auto mb-8 sm:mb-12">
+          {/* Mobile step progress summary */}
+          <div className="sm:hidden flex items-center justify-between mb-2 text-xs">
+            <span className="font-serif font-medium text-neutral-950">
+              Etapa {step} de 5: <span className="font-sans font-normal text-neutral-600">{stepsList[step - 1].label}</span>
+            </span>
+            <span className="text-[11px] text-neutral-500 font-mono font-medium">{Math.round((step / 5) * 100)}%</span>
+          </div>
+
+          <div className="grid grid-cols-5 gap-1 sm:gap-2 text-center">
             {stepsList.map((s) => {
               const isActive = step === s.num;
               const isPast = step > s.num;
@@ -217,13 +225,14 @@ export default function BudgetCalculator() {
                   key={s.num}
                   type="button"
                   onClick={() => setStep(s.num)}
-                  className="group flex flex-col items-center cursor-pointer focus:outline-none"
+                  className="group flex flex-col items-center cursor-pointer focus:outline-none py-1"
+                  aria-label={`Ir para etapa ${s.num}: ${s.label}`}
                 >
-                  <div className={`w-full h-[2px] mb-3 transition-colors ${
-                    isActive ? 'bg-neutral-950' : (isPast ? 'bg-neutral-400' : 'bg-neutral-200')
+                  <div className={`w-full h-[2.5px] mb-2 sm:mb-3 transition-colors rounded-full ${
+                    isActive ? 'bg-neutral-950' : (isPast ? 'bg-neutral-600' : 'bg-neutral-200')
                   }`} />
-                  <span className={`text-[9px] sm:text-xs tracking-wider uppercase font-medium transition-colors ${
-                    isActive ? 'text-neutral-950 font-semibold' : 'text-neutral-500 group-hover:text-neutral-800'
+                  <span className={`text-[8px] sm:text-xs tracking-tight sm:tracking-wider uppercase font-medium transition-colors truncate max-w-full ${
+                    isActive ? 'text-neutral-950 font-semibold' : 'text-neutral-400 group-hover:text-neutral-800'
                   }`}>
                     <span className="sm:hidden">{s.num}. {s.shortLabel}</span>
                     <span className="hidden sm:inline">{s.num}. {s.label}</span>
@@ -235,7 +244,7 @@ export default function BudgetCalculator() {
         </div>
 
         {/* Step Content Container */}
-        <div className="bg-white border border-neutral-200 rounded-sm p-6 sm:p-10 shadow-xl">
+        <div className="bg-white border border-neutral-200 rounded-sm p-4 sm:p-10 shadow-xl">
           
           {/* STEP 1: Tipo de Evento */}
           {step === 1 && (
@@ -289,7 +298,7 @@ export default function BudgetCalculator() {
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 sm:px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md text-center"
                 >
                   Próximo: Convidados & Estrutura
                   <ChevronRight className="w-4 h-4" />
@@ -387,11 +396,11 @@ export default function BudgetCalculator() {
                 </div>
               </div>
 
-              <div className="flex justify-between pt-4 border-t border-neutral-100">
+              <div className="flex flex-col-reverse sm:flex-row sm:justify-between items-stretch sm:items-center gap-3 pt-4 border-t border-neutral-100">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Voltar
@@ -399,7 +408,7 @@ export default function BudgetCalculator() {
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 sm:px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md text-center"
                 >
                   Próximo: Formato Gastronômico
                   <ChevronRight className="w-4 h-4" />
@@ -431,17 +440,17 @@ export default function BudgetCalculator() {
                       key={style.id}
                       type="button"
                       onClick={() => setBudget({ ...budget, serviceStyle: style.id })}
-                      className={`w-full text-left p-6 rounded-sm border transition-all cursor-pointer relative ${
+                      className={`w-full text-left p-4 sm:p-6 rounded-sm border transition-all cursor-pointer relative ${
                         isSelected
                           ? 'border-neutral-950 bg-neutral-950 text-white shadow-xl'
                           : 'border-neutral-200 bg-neutral-50/60 hover:border-neutral-400 hover:bg-white text-neutral-900'
                       }`}
                     >
-                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                        <h4 className={`font-serif text-lg font-medium ${isSelected ? 'text-white' : 'text-neutral-950'}`}>
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 sm:gap-2 mb-2">
+                        <h4 className={`font-serif text-base sm:text-lg font-medium ${isSelected ? 'text-white' : 'text-neutral-950'}`}>
                           {style.name}
                         </h4>
-                        <span className={`text-[10px] font-semibold px-2.5 py-1 rounded-sm w-fit uppercase tracking-wider ${
+                        <span className={`text-[10px] font-semibold px-2 py-0.5 sm:py-1 rounded-sm w-fit uppercase tracking-wider ${
                           isSelected ? 'bg-white/20 text-white' : 'bg-neutral-200 text-neutral-800'
                         }`}>
                           {style.tag}
@@ -460,11 +469,11 @@ export default function BudgetCalculator() {
                 })}
               </div>
 
-              <div className="flex justify-between pt-4 border-t border-neutral-100">
+              <div className="flex flex-col-reverse sm:flex-row sm:justify-between items-stretch sm:items-center gap-3 pt-4 border-t border-neutral-100">
                 <button
                   type="button"
                   onClick={() => setStep(2)}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Voltar
@@ -472,7 +481,7 @@ export default function BudgetCalculator() {
                 <button
                   type="button"
                   onClick={() => setStep(4)}
-                  className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 sm:px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md text-center"
                 >
                   Próximo: Módulos Especiais
                   <ChevronRight className="w-4 h-4" />
@@ -559,11 +568,11 @@ export default function BudgetCalculator() {
                 </div>
               </div>
 
-              <div className="flex justify-between pt-4 border-t border-neutral-100">
+              <div className="flex flex-col-reverse sm:flex-row sm:justify-between items-stretch sm:items-center gap-3 pt-4 border-t border-neutral-100">
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider text-neutral-600 hover:text-neutral-950 px-4 py-3 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                   Voltar
@@ -571,7 +580,7 @@ export default function BudgetCalculator() {
                 <button
                   type="button"
                   onClick={() => setStep(5)}
-                  className="inline-flex items-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 sm:px-7 py-3.5 rounded-sm transition-all cursor-pointer shadow-md text-center"
                 >
                   Próximo: Finalizar Proposta
                   <ChevronRight className="w-4 h-4" />
@@ -596,36 +605,36 @@ export default function BudgetCalculator() {
               </div>
 
               {/* Summary Box */}
-              <div className="bg-[#F7F7F6] border border-neutral-200 p-6 rounded-sm space-y-3 text-xs sm:text-sm">
-                <div className="flex items-center justify-between border-b border-neutral-200/60 pb-2">
+              <div className="bg-[#F7F7F6] border border-neutral-200 p-4 sm:p-6 rounded-sm space-y-3 text-xs sm:text-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-200/60 pb-2">
                   <span className="text-neutral-600">Tipo de Evento:</span>
                   <span className="font-medium text-neutral-950 capitalize">{budget.eventType}</span>
                 </div>
-                <div className="flex items-center justify-between border-b border-neutral-200/60 pb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-200/60 pb-2">
                   <span className="text-neutral-600">Convidados Estimados:</span>
                   <span className="font-medium text-neutral-950">{budget.guestCount} pessoas</span>
                 </div>
-                <div className="flex items-center justify-between border-b border-neutral-200/60 pb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-200/60 pb-2">
                   <span className="text-neutral-600">Formato Gastronômico:</span>
-                  <span className="font-medium text-neutral-950 text-right max-w-xs">
+                  <span className="font-medium text-neutral-950 text-left sm:text-right max-w-sm">
                     {SERVICE_STYLES.find(s => s.id === budget.serviceStyle)?.name}
                   </span>
                 </div>
-                <div className="flex items-center justify-between border-b border-neutral-200/60 pb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-200/60 pb-2">
                   <span className="text-neutral-600">Brigada de Atendimento:</span>
-                  <span className="font-medium text-neutral-950 text-right">
+                  <span className="font-medium text-neutral-950 text-left sm:text-right">
                     ~{estimatedWaiters} garçons + ~{estimatedKitchen} chefs e auxiliares
                   </span>
                 </div>
-                <div className="flex items-center justify-between border-b border-neutral-200/60 pb-2">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 border-b border-neutral-200/60 pb-2">
                   <span className="text-neutral-600">Módulos Adicionais:</span>
-                  <span className="font-medium text-neutral-950 text-right">
+                  <span className="font-medium text-neutral-950 text-left sm:text-right">
                     {budget.extras.length > 0 ? `${budget.extras.length} módulos selecionados` : 'Cardápio Padrão'}
                   </span>
                 </div>
-                <div className="flex items-center justify-between pt-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-1">
                   <span className="text-neutral-800 font-semibold flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-neutral-950" />
+                    <ShieldCheck className="w-4 h-4 text-neutral-950 shrink-0" />
                     Degustação Privativa dos Noivos:
                   </span>
                   <span className="text-neutral-950 font-medium">Disponível em Jundiaí (Chácara Urbana)</span>
@@ -648,7 +657,7 @@ export default function BudgetCalculator() {
                         setBudget({ ...budget, clientName: e.target.value });
                         setErrorMessage('');
                       }}
-                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
 
@@ -665,7 +674,7 @@ export default function BudgetCalculator() {
                         setBudget({ ...budget, clientPhone: e.target.value });
                         setErrorMessage('');
                       }}
-                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -680,7 +689,7 @@ export default function BudgetCalculator() {
                       placeholder="Ex: Novembro / 2026 ou 15/11/2026"
                       value={budget.eventDate}
                       onChange={(e) => setBudget({ ...budget, eventDate: e.target.value })}
-                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
 
@@ -693,7 +702,7 @@ export default function BudgetCalculator() {
                       placeholder="Ex: Jundiaí, Itatiba, Campinas, Fazenda..."
                       value={budget.eventCity}
                       onChange={(e) => setBudget({ ...budget, eventCity: e.target.value })}
-                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-white border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -717,9 +726,9 @@ export default function BudgetCalculator() {
                       href={whatsappGeneratedUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full py-4 px-6 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] rounded-sm shadow-xl transition-all"
+                      className="inline-flex items-center justify-center gap-2 w-full py-4 px-4 sm:px-6 bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] rounded-sm shadow-xl transition-all text-center"
                     >
-                      <Send className="w-4 h-4 text-white" />
+                      <Send className="w-4 h-4 text-white shrink-0" />
                       Enviar Proposta no WhatsApp
                     </a>
                   </div>
@@ -727,9 +736,9 @@ export default function BudgetCalculator() {
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.18em] py-4 px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+                      className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] py-4 px-4 sm:px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] text-center"
                     >
-                      <Send className="w-4 h-4 text-white" />
+                      <Send className="w-4 h-4 text-white shrink-0" />
                       Gerar Proposta e Enviar para o WhatsApp
                     </button>
                     <p className="text-[11px] text-neutral-500 text-center mt-2.5 font-light">

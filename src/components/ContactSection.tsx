@@ -121,7 +121,7 @@ export default function ContactSection() {
           </div>
 
           {/* Right Column: Contact form */}
-          <div className="lg:col-span-7 bg-white text-neutral-900 p-8 sm:p-10 rounded-sm border border-neutral-200 shadow-xl space-y-6">
+          <div className="lg:col-span-7 bg-white text-neutral-900 p-5 sm:p-10 rounded-sm border border-neutral-200 shadow-xl space-y-6">
             <div className="border-b border-neutral-100 pb-4">
               <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">
                 Mensagem Rápida
@@ -146,7 +146,7 @@ export default function ContactSection() {
                       setForm({ ...form, name: e.target.value });
                       setErrorMessage('');
                     }}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                   />
                 </div>
 
@@ -163,7 +163,7 @@ export default function ContactSection() {
                       setForm({ ...form, phone: e.target.value });
                       setErrorMessage('');
                     }}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                   />
                 </div>
               </div>
@@ -177,7 +177,7 @@ export default function ContactSection() {
                   placeholder="seuemail@exemplo.com"
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                 />
               </div>
 
@@ -190,7 +190,7 @@ export default function ContactSection() {
                   placeholder="Conte um pouco sobre o formato ou sonho do seu evento..."
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors resize-none"
+                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors resize-none"
                 ></textarea>
               </div>
 
@@ -219,9 +219,9 @@ export default function ContactSection() {
               ) : (
                 <button
                   type="submit"
-                  className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.18em] py-4 px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+                  className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] py-4 px-4 sm:px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] text-center"
                 >
-                  <Send className="w-4 h-4 text-white" />
+                  <Send className="w-4 h-4 text-white shrink-0" />
                   Iniciar Atendimento no WhatsApp
                 </button>
               )}

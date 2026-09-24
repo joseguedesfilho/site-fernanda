@@ -60,21 +60,18 @@ export default function MenuSection({ onOpenTastingModal, onOpenSimulator }: Men
         </div>
 
         {/* Minimalist Segmented Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-neutral-200 pb-4">
+        <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 border-b border-neutral-200 pb-3 sm:pb-4 px-1 sm:px-0">
           {CATEGORIES.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.15em] font-medium transition-all cursor-pointer relative ${
+              className={`px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] font-medium transition-all cursor-pointer whitespace-nowrap rounded-sm ${
                 activeCategory === cat.id
-                  ? 'text-neutral-950 font-semibold'
-                  : 'text-neutral-500 hover:text-neutral-950'
+                  ? 'bg-neutral-950 text-white font-semibold shadow-xs'
+                  : 'bg-neutral-100/80 text-neutral-600 hover:text-neutral-950 hover:bg-neutral-200/80'
               }`}
             >
               {cat.label}
-              {activeCategory === cat.id && (
-                <span className="absolute bottom-[-17px] left-0 right-0 h-[2px] bg-neutral-950 transition-all"></span>
-              )}
             </button>
           ))}
         </div>
@@ -180,7 +177,7 @@ export default function MenuSection({ onOpenTastingModal, onOpenSimulator }: Men
             >
               <button
                 onClick={() => setSelectedDish(null)}
-                className="absolute top-4 right-4 text-neutral-400 hover:text-black p-1 cursor-pointer"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 text-neutral-400 hover:text-black w-10 h-10 flex items-center justify-center cursor-pointer rounded-full hover:bg-neutral-100 transition-colors"
                 aria-label="Fechar"
               >
                 <X className="w-5 h-5" />

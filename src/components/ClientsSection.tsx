@@ -131,7 +131,7 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               type="button"
               onClick={() => handleScroll('left')}
               disabled={!canScrollLeft}
-              className={`absolute left-0 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+              className={`hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border items-center justify-center transition-all cursor-pointer shadow-lg ${
                 canScrollLeft 
                   ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
                   : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
@@ -148,13 +148,13 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               onMouseMove={handleMouseMove}
               onMouseUp={handleMouseUpOrLeave}
               onMouseLeave={handleMouseUpOrLeave}
-              className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory py-2 cursor-grab active:cursor-grabbing select-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
             >
               {CLIENT_LOGOS.map((client) => (
                 <div
                   key={client.id}
                   /* Exactly 5 items visible on lg (w-[calc((100%-4*1rem)/5)]), 3 on md, 2 on sm, 1.3 on mobile */
-                  className="flex-[0_0_calc(75%)] sm:flex-[0_0_calc((100%-1rem)/2)] md:flex-[0_0_calc((100%-2*1rem)/3)] lg:flex-[0_0_calc((100%-4*1rem)/5)] snap-start bg-[#FAFAF9] hover:bg-white border border-neutral-200 hover:border-neutral-400 p-5 rounded-sm transition-all duration-300 flex flex-col items-center justify-center text-center space-y-3 group min-h-[145px] shadow-2xs hover:shadow-md"
+                  className="flex-[0_0_calc(75%)] sm:flex-[0_0_calc((100%-1rem)/2)] md:flex-[0_0_calc((100%-2*1rem)/3)] lg:flex-[0_0_calc((100%-4*1rem)/5)] snap-start bg-[#FAFAF9] hover:bg-white border border-neutral-200 hover:border-neutral-400 p-4 sm:p-5 rounded-sm transition-all duration-300 flex flex-col items-center justify-center text-center space-y-3 group min-h-[140px] sm:min-h-[145px] shadow-2xs hover:shadow-md"
                 >
                   {client.logoUrl ? (
                     <div className="h-12 w-full flex items-center justify-center">
@@ -190,7 +190,7 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               type="button"
               onClick={() => handleScroll('right')}
               disabled={!canScrollRight}
-              className={`absolute right-0 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+              className={`hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border items-center justify-center transition-all cursor-pointer shadow-lg ${
                 canScrollRight 
                   ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
                   : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
@@ -210,13 +210,13 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               />
             </div>
             <span className="text-[10px] uppercase tracking-wider text-neutral-500 font-medium">
-              5 visíveis simultaneamente · {CLIENT_LOGOS.length} marcas atendidas
+              Deslize para ver mais marcas ({CLIENT_LOGOS.length})
             </span>
           </div>
         </div>
 
         {/* 3. Corporate Direct Assistance & Invoicing Callout */}
-        <div className="p-8 sm:p-10 bg-[#F5F5F4] border border-neutral-200 rounded-sm flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="p-6 sm:p-10 bg-[#F5F5F4] border border-neutral-200 rounded-sm flex flex-col lg:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-2 text-center lg:text-left">
             <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">
               Atendimento Corporativo & Cerimonialistas
@@ -235,15 +235,15 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               href={getWhatsappCorporate()}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 bg-neutral-950 text-white hover:bg-black text-xs font-bold uppercase tracking-[0.15em] rounded-sm transition-all shadow-md whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 bg-neutral-950 text-white hover:bg-black text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.15em] rounded-sm transition-all shadow-md text-center shrink-0"
             >
-              <Briefcase className="w-4 h-4 text-white" />
+              <Briefcase className="w-4 h-4 text-white shrink-0" />
               Solicitar Proposta Corporativa
             </a>
 
             <button
               onClick={onOpenSimulator}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 border border-neutral-300 hover:border-neutral-900 text-neutral-900 hover:bg-neutral-100 text-xs font-medium uppercase tracking-[0.15em] rounded-sm transition-all cursor-pointer whitespace-nowrap"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 border border-neutral-300 hover:border-neutral-900 text-neutral-900 hover:bg-neutral-100 text-[11px] sm:text-xs font-medium uppercase tracking-[0.12em] sm:tracking-[0.15em] rounded-sm transition-all cursor-pointer text-center shrink-0"
             >
               Simular Cardápio Online
             </button>

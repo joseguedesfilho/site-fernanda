@@ -174,12 +174,12 @@ export default function Differentiators({ onOpenTastingModal }: DifferentiatorsP
         </div>
 
         {/* Bottom Reassurance Banner */}
-        <div className="p-8 sm:p-10 bg-[#F5F5F4] border border-neutral-200 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
+        <div className="p-6 sm:p-10 bg-[#F5F5F4] border border-neutral-200 rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
           <div className="space-y-1.5 text-center md:text-left">
             <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">
               Garantia de Excelência Fernanda Prado
             </span>
-            <h3 className="font-serif text-2xl text-neutral-950">
+            <h3 className="font-serif text-xl sm:text-2xl text-neutral-950">
               Viva a experiência gastronômica antes de assinar o contrato
             </h3>
             <p className="text-xs sm:text-sm text-neutral-600 font-light">
@@ -189,10 +189,10 @@ export default function Differentiators({ onOpenTastingModal }: DifferentiatorsP
 
           <button
             onClick={onOpenTastingModal}
-            className="cursor-pointer inline-flex items-center justify-center gap-2 px-7 py-4 bg-neutral-950 text-white hover:bg-black text-xs font-bold uppercase tracking-[0.18em] rounded-sm transition-all shadow-md whitespace-nowrap"
+            className="w-full md:w-auto cursor-pointer inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-3.5 sm:py-4 bg-neutral-950 text-white hover:bg-black text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.18em] rounded-sm transition-all shadow-md text-center shrink-0"
           >
             Agendar Atelier de Degustação
-            <ArrowRight className="w-4 h-4 text-white" />
+            <ArrowRight className="w-4 h-4 text-white shrink-0" />
           </button>
         </div>
 

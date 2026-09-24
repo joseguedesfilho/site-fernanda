@@ -46,7 +46,7 @@ export default function GallerySection() {
         </div>
 
         {/* Minimalist Segmented Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 border-b border-neutral-200 pb-4">
+        <div className="flex overflow-x-auto no-scrollbar sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2 mb-10 sm:mb-12 border-b border-neutral-200 pb-3 sm:pb-4 px-1 sm:px-0">
           {[
             { id: 'all', label: 'Todos os Registros' },
             { id: 'casamentos', label: 'Casamentos & Banquetes' },
@@ -57,16 +57,13 @@ export default function GallerySection() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.15em] font-medium transition-all cursor-pointer relative ${
+              className={`px-3.5 sm:px-4 py-2 text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.15em] font-medium transition-all cursor-pointer whitespace-nowrap rounded-sm ${
                 filter === tab.id
-                  ? 'text-neutral-950 font-semibold'
-                  : 'text-neutral-500 hover:text-neutral-950'
+                  ? 'bg-neutral-950 text-white font-semibold shadow-xs'
+                  : 'bg-neutral-100/80 text-neutral-600 hover:text-neutral-950 hover:bg-neutral-200/80'
               }`}
             >
               {tab.label}
-              {filter === tab.id && (
-                <span className="absolute bottom-[-17px] left-0 right-0 h-[2px] bg-neutral-950 transition-all"></span>
-              )}
             </button>
           ))}
         </div>
@@ -115,35 +112,35 @@ export default function GallerySection() {
         {/* Lightbox Modal */}
         {selectedPhoto && (
           <div
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-8"
             onClick={() => setSelectedPhoto(null)}
           >
             <div
-              className="relative max-w-4xl w-full bg-white border border-neutral-200 rounded-sm overflow-hidden shadow-2xl text-neutral-900"
+              className="relative max-w-4xl w-full bg-white border border-neutral-200 rounded-sm overflow-hidden shadow-2xl text-neutral-900 max-h-[92vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedPhoto(null)}
-                className="absolute top-4 right-4 z-10 p-2 bg-black/70 hover:bg-black text-white rounded-full transition-colors cursor-pointer"
+                className="absolute top-3 right-3 z-10 w-10 h-10 bg-black/70 hover:bg-black text-white rounded-full flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Fechar ampliação"
               >
                 <X className="w-5 h-5" />
               </button>
 
-              <div className="max-h-[70vh] overflow-hidden bg-neutral-950 flex items-center justify-center">
+              <div className="max-h-[50vh] sm:max-h-[70vh] overflow-hidden bg-neutral-950 flex items-center justify-center">
                 <img
                   src={selectedPhoto.image}
                   alt={selectedPhoto.title}
-                  className="w-full h-full object-contain max-h-[70vh]"
+                  className="w-full h-full object-contain max-h-[50vh] sm:max-h-[70vh]"
                 />
               </div>
 
-              <div className="p-6 sm:p-8 bg-white border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="p-5 sm:p-8 bg-white border-t border-neutral-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-neutral-500">
                     {getCategoryLabel(selectedPhoto.category)}
                   </span>
-                  <h3 className="font-serif text-2xl font-normal text-neutral-950 mt-1">
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-neutral-950 mt-1">
                     {selectedPhoto.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-neutral-600 font-light mt-1 max-w-xl">
@@ -157,7 +154,7 @@ export default function GallerySection() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 py-3.5 rounded-sm transition-all whitespace-nowrap text-center shadow-md"
+                  className="w-full sm:w-auto bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.15em] px-6 py-3.5 rounded-sm transition-all text-center shadow-md shrink-0"
                 >
                   Quero Este Formato
                 </a>

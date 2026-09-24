@@ -37,11 +37,11 @@ export default function Testimonials({ onOpenSimulator }: TestimonialsProps) {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {TESTIMONIALS.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-neutral-200 p-8 sm:p-9 rounded-sm shadow-sm hover:border-neutral-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-6"
+              className="bg-white border border-neutral-200 p-5 sm:p-9 rounded-sm shadow-sm hover:border-neutral-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
@@ -58,7 +58,7 @@ export default function Testimonials({ onOpenSimulator }: TestimonialsProps) {
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
+              <div className="pt-4 border-t border-neutral-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                 <div>
                   <h4 className="font-serif text-base font-medium text-neutral-950">
                     {item.name}
@@ -66,7 +66,7 @@ export default function Testimonials({ onOpenSimulator }: TestimonialsProps) {
                   <p className="text-xs text-neutral-500 font-light">{item.role}</p>
                   <p className="text-[11px] text-neutral-400 font-sans mt-0.5">{item.location}</p>
                 </div>
-                <div className="flex items-center gap-1.5 text-[11px] text-neutral-800 bg-neutral-100 px-3 py-1 rounded-sm border border-neutral-200">
+                <div className="flex items-center gap-1.5 text-[11px] text-neutral-800 bg-neutral-100 px-2.5 py-1 rounded-sm border border-neutral-200 w-fit">
                   <Check className="w-3.5 h-3.5 text-neutral-950 stroke-[2.5]" />
                   Depoimento Verificado
                 </div>
@@ -76,13 +76,13 @@ export default function Testimonials({ onOpenSimulator }: TestimonialsProps) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-14 text-center">
+        <div className="mt-14 text-center px-4">
           <button
             onClick={onOpenSimulator}
-            className="cursor-pointer inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-neutral-950 hover:text-black transition-colors border-b border-neutral-950 pb-1"
+            className="cursor-pointer inline-flex items-center gap-2 text-[11px] sm:text-xs font-bold uppercase tracking-[0.12em] sm:tracking-[0.18em] text-neutral-950 hover:text-black transition-colors border-b border-neutral-950 pb-1 text-center"
           >
             Simular o cardápio exclusivo para o seu evento
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-4 h-4 shrink-0" />
           </button>
         </div>
 

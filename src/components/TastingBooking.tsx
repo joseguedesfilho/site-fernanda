@@ -60,7 +60,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
           <div className="grid grid-cols-1 lg:grid-cols-12">
             
             {/* Left Column: Tasting Protocol & Experience */}
-            <div className="lg:col-span-6 relative min-h-[420px] lg:min-h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 overflow-hidden bg-neutral-950">
+            <div className="lg:col-span-6 relative min-h-[320px] sm:min-h-[420px] lg:min-h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 overflow-hidden bg-neutral-950">
               <img
                 src={IMAGES.grazingTable}
                 alt="Degustação Privativa de Casamento Fernanda Prado"
@@ -118,7 +118,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
             </div>
 
             {/* Right Column: Booking Form */}
-            <div className="lg:col-span-6 p-6 sm:p-10 lg:p-12 space-y-6 bg-white">
+            <div className="lg:col-span-6 p-5 sm:p-10 lg:p-12 space-y-6 bg-white">
               <div className="space-y-1.5 border-b border-neutral-100 pb-4">
                 <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">
                   Agenda Exclusiva
@@ -142,7 +142,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                     placeholder="Ex: Mariana & Carlos Eduardo"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                   />
                 </div>
 
@@ -157,7 +157,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                       placeholder="(11) 98765-4321"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
 
@@ -168,7 +168,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                     <select
                       value={eventType}
                       onChange={(e) => setEventType(e.target.value)}
-                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors cursor-pointer"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors cursor-pointer"
                     >
                       <option value="Casamento">Casamento</option>
                       <option value="Festa de 15 Anos">Festa de 15 Anos</option>
@@ -189,7 +189,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                       placeholder="Ex: Outubro / 2026"
                       value={eventDate}
                       onChange={(e) => setEventDate(e.target.value)}
-                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
 
@@ -202,7 +202,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                       placeholder="Ex: Terça à tarde ou Sábado"
                       value={tastingDate}
                       onChange={(e) => setTastingDate(e.target.value)}
-                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-sm px-4 py-3 rounded-sm outline-none transition-colors"
+                      className="w-full bg-neutral-50 border border-neutral-300 focus:border-neutral-950 text-neutral-900 text-base sm:text-sm px-4 py-3 rounded-sm outline-none transition-colors"
                     />
                   </div>
                 </div>
@@ -233,9 +233,9 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
                   <div className="pt-2">
                     <button
                       type="submit"
-                      className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-xs uppercase tracking-[0.18em] py-4 px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01]"
+                      className="w-full cursor-pointer bg-neutral-950 hover:bg-black text-white font-bold text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.18em] py-4 px-4 sm:px-6 rounded-sm shadow-xl flex items-center justify-center gap-2 transition-all hover:scale-[1.01] text-center"
                     >
-                      <Send className="w-4 h-4 text-white" />
+                      <Send className="w-4 h-4 text-white shrink-0" />
                       Solicitar Horário de Degustação no WhatsApp
                     </button>
                     <p className="text-[11px] text-neutral-500 text-center mt-2 font-light">

@@ -43,3 +43,13 @@ h1, h2, h3, .font-serif {
 ::-webkit-scrollbar-thumb:hover {
   background: #A8A29E;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
