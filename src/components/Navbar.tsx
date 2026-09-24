@@ -32,8 +32,6 @@ export default function Navbar({ onOpenTastingModal, onScrollToSection }: Navbar
     { label: 'Cardápios', id: 'cardapios' },
     { label: 'Simulador', id: 'simulador', highlight: true },
     { label: 'Degustação', id: 'degustacao' },
-    { label: 'O Padrão FP', id: 'diferenciais' },
-    { label: 'Fernanda Prado', id: 'sobre' },
     { label: 'Galeria', id: 'galeria' },
     { label: 'Clientes', id: 'clientes' },
     { label: 'Depoimentos', id: 'depoimentos' },

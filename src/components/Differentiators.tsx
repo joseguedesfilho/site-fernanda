@@ -99,8 +99,8 @@ export default function Differentiators({ onOpenTastingModal }: DifferentiatorsP
           </div>
 
           <div className="bg-white border border-neutral-200 rounded-sm overflow-hidden shadow-lg">
-            {/* Header row */}
-            <div className="grid grid-cols-1 md:grid-cols-12 border-b border-neutral-200 bg-neutral-900 text-xs font-semibold uppercase tracking-wider text-neutral-300">
+            {/* Header row (Desktop) */}
+            <div className="hidden md:grid md:grid-cols-12 border-b border-neutral-200 bg-neutral-900 text-xs font-semibold uppercase tracking-wider text-neutral-300">
               <div className="md:col-span-4 p-4 text-neutral-300">Critério de Qualidade</div>
               <div className="md:col-span-4 p-4 text-white bg-black/40 border-l border-neutral-800 flex items-center gap-1.5">
                 <Check className="w-4 h-4 text-white" />
@@ -116,26 +116,36 @@ export default function Differentiators({ onOpenTastingModal }: DifferentiatorsP
               {comparisonList.map((row, idx) => (
                 <div key={idx} className="grid grid-cols-1 md:grid-cols-12 text-xs sm:text-sm">
                   {/* Topic */}
-                  <div className="md:col-span-4 p-4 sm:p-5 bg-neutral-50 flex items-center">
+                  <div className="md:col-span-4 p-4 sm:p-5 bg-neutral-50 flex items-center border-b md:border-b-0 border-neutral-200">
                     <span className="font-serif text-base text-neutral-950 font-medium">
                       {row.topic}
                     </span>
                   </div>
 
                   {/* Fernanda Prado column */}
-                  <div className="md:col-span-4 p-4 sm:p-5 bg-white border-l border-neutral-200 text-neutral-800 font-light leading-relaxed flex items-start gap-2.5">
+                  <div className="md:col-span-4 p-4 sm:p-5 bg-white md:border-l border-b md:border-b-0 border-neutral-200 text-neutral-800 font-light leading-relaxed flex items-start gap-2.5">
                     <div className="w-5 h-5 rounded-full bg-neutral-950 text-white flex items-center justify-center flex-shrink-0 mt-0.5">
                       <Check className="w-3.5 h-3.5 stroke-[3]" />
                     </div>
-                    <span>{row.fernanda}</span>
+                    <div className="space-y-1">
+                      <span className="md:hidden inline-block text-[10px] uppercase font-bold tracking-wider text-neutral-900 bg-neutral-100 px-2 py-0.5 rounded-xs">
+                        Fernanda Prado Buffet
+                      </span>
+                      <p>{row.fernanda}</p>
+                    </div>
                   </div>
 
                   {/* Conventional column */}
-                  <div className="md:col-span-4 p-4 sm:p-5 bg-neutral-50/50 border-l border-neutral-200 text-neutral-600 font-light leading-relaxed flex items-start gap-2.5">
+                  <div className="md:col-span-4 p-4 sm:p-5 bg-neutral-50/50 md:border-l border-neutral-200 text-neutral-600 font-light leading-relaxed flex items-start gap-2.5">
                     <div className="w-5 h-5 rounded-full bg-neutral-200 text-neutral-500 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <XIcon className="w-3.5 h-3.5 stroke-[2]" />
                     </div>
-                    <span>{row.conventional}</span>
+                    <div className="space-y-1">
+                      <span className="md:hidden inline-block text-[10px] uppercase font-medium tracking-wider text-neutral-500 bg-neutral-100 px-2 py-0.5 rounded-xs">
+                        Buffets Convencionais
+                      </span>
+                      <p>{row.conventional}</p>
+                    </div>
                   </div>
                 </div>
               ))}

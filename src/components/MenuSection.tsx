@@ -175,7 +175,7 @@ export default function MenuSection({ onOpenTastingModal, onOpenSimulator }: Men
             onClick={() => setSelectedDish(null)}
           >
             <div
-              className="relative max-w-lg w-full bg-white border border-neutral-200 rounded-sm p-6 sm:p-8 shadow-2xl space-y-6 text-neutral-900"
+              className="relative max-w-lg w-full bg-white border border-neutral-200 rounded-sm p-6 sm:p-8 shadow-2xl space-y-6 text-neutral-900 max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <button

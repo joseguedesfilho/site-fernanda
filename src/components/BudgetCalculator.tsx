@@ -180,11 +180,11 @@ export default function BudgetCalculator() {
   };
 
   const stepsList = [
-    { num: 1, label: 'Celebração' },
-    { num: 2, label: 'Convidados & Brigada' },
-    { num: 3, label: 'Formato Gastronômico' },
-    { num: 4, label: 'Módulos Autorais' },
-    { num: 5, label: 'Proposta Sob Medida' }
+    { num: 1, label: 'Celebração', shortLabel: 'Evento' },
+    { num: 2, label: 'Convidados & Brigada', shortLabel: 'Pessoas' },
+    { num: 3, label: 'Formato Gastronômico', shortLabel: 'Formato' },
+    { num: 4, label: 'Módulos Autorais', shortLabel: 'Módulos' },
+    { num: 5, label: 'Proposta Sob Medida', shortLabel: 'Proposta' }
   ];
 
   return (
@@ -222,10 +222,11 @@ export default function BudgetCalculator() {
                   <div className={`w-full h-[2px] mb-3 transition-colors ${
                     isActive ? 'bg-neutral-950' : (isPast ? 'bg-neutral-400' : 'bg-neutral-200')
                   }`} />
-                  <span className={`text-[10px] sm:text-xs tracking-wider uppercase font-medium transition-colors ${
+                  <span className={`text-[9px] sm:text-xs tracking-wider uppercase font-medium transition-colors ${
                     isActive ? 'text-neutral-950 font-semibold' : 'text-neutral-500 group-hover:text-neutral-800'
                   }`}>
-                    {s.num}. {s.label}
+                    <span className="sm:hidden">{s.num}. {s.shortLabel}</span>
+                    <span className="hidden sm:inline">{s.num}. {s.label}</span>
                   </span>
                 </button>
               );

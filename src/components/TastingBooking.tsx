@@ -60,7 +60,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
           <div className="grid grid-cols-1 lg:grid-cols-12">
             
             {/* Left Column: Tasting Protocol & Experience */}
-            <div className="lg:col-span-6 relative min-h-[420px] lg:min-h-full flex flex-col justify-between p-8 sm:p-12 overflow-hidden bg-neutral-950">
+            <div className="lg:col-span-6 relative min-h-[420px] lg:min-h-full flex flex-col justify-between p-6 sm:p-10 lg:p-12 overflow-hidden bg-neutral-950">
               <img
                 src={IMAGES.grazingTable}
                 alt="Degustação Privativa de Casamento Fernanda Prado"
@@ -118,7 +118,7 @@ export default function TastingBooking({ onSuccessNotice }: TastingBookingProps)
             </div>
 
             {/* Right Column: Booking Form */}
-            <div className="lg:col-span-6 p-8 sm:p-12 space-y-6 bg-white">
+            <div className="lg:col-span-6 p-6 sm:p-10 lg:p-12 space-y-6 bg-white">
               <div className="space-y-1.5 border-b border-neutral-100 pb-4">
                 <span className="text-[10px] tracking-[0.25em] uppercase text-neutral-500 font-medium block">
                   Agenda Exclusiva

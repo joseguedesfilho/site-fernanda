@@ -131,14 +131,14 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               type="button"
               onClick={() => handleScroll('left')}
               disabled={!canScrollLeft}
-              className={`absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+              className={`absolute left-0 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
                 canScrollLeft 
                   ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
                   : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
               }`}
               aria-label="Ver clientes anteriores"
             >
-              <ChevronLeft className="w-5 h-5" />
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
 
             {/* Scrollable Container */}
@@ -190,14 +190,14 @@ export default function ClientsSection({ onOpenSimulator, onOpenTastingModal }: 
               type="button"
               onClick={() => handleScroll('right')}
               disabled={!canScrollRight}
-              className={`absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
+              className={`absolute right-0 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-11 sm:h-11 rounded-full border flex items-center justify-center transition-all cursor-pointer shadow-lg ${
                 canScrollRight 
                   ? 'bg-white hover:bg-neutral-950 text-neutral-900 hover:text-white border-neutral-300 hover:border-neutral-950 hover:scale-105 active:scale-95' 
                   : 'bg-neutral-100 text-neutral-300 border-neutral-200 cursor-not-allowed opacity-0 pointer-events-none'
               }`}
               aria-label="Ver próximos clientes"
             >
-              <ChevronRight className="w-5 h-5" />
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 

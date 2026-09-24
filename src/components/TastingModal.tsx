@@ -41,7 +41,7 @@ export default function TastingModal({ isOpen, onClose }: TastingModalProps) {
   return (
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
       <div 
-        className="relative max-w-lg w-full bg-white text-neutral-900 border border-neutral-200 rounded-sm p-6 sm:p-8 shadow-2xl space-y-6"
+        className="relative max-w-lg w-full bg-white text-neutral-900 border border-neutral-200 rounded-sm p-6 sm:p-8 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <button
